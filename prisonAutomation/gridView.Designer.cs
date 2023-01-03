@@ -30,6 +30,7 @@
         {
             this.table = new System.Windows.Forms.DataGridView();
             this.personalBut = new System.Windows.Forms.Button();
+            this.searchBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,6 +56,15 @@
             this.personalBut.UseVisualStyleBackColor = false;
             this.personalBut.Click += new System.EventHandler(this.personalBut_Click);
             // 
+            // searchBox
+            // 
+            this.searchBox.BackColor = System.Drawing.SystemColors.Info;
+            this.searchBox.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.searchBox.Location = new System.Drawing.Point(230, 412);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(434, 20);
+            this.searchBox.TabIndex = 25;
+            // 
             // gridView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -62,12 +72,14 @@
             this.BackgroundImage = global::prisonAutomation.Properties.Resources.lawAndOrder;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(676, 450);
+            this.Controls.Add(this.searchBox);
             this.Controls.Add(this.personalBut);
             this.Controls.Add(this.table);
             this.Name = "gridView";
             this.Text = "girdView";
             ((System.ComponentModel.ISupportInitialize)(this.table)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -75,5 +87,6 @@
 
         private System.Windows.Forms.DataGridView table;
         private System.Windows.Forms.Button personalBut;
+        private System.Windows.Forms.TextBox searchBox;
     }
 }

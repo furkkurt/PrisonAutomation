@@ -23,5 +23,12 @@ namespace prisonAutomation
             toPersonalPage.Show();
             this.Hide();
         }
+
+        private void visitorBut_Click(object sender, EventArgs e)
+        {
+            visitorPage toVisitorPage = new visitorPage();
+            toVisitorPage.Show();
+            this.Hide();
+        }
     }
 }

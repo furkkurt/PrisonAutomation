@@ -16,6 +16,22 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,6 +51,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>8EE3C2E51E5D321DC5F819285EA3308DC7A11C16</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>prisonAutomation_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -66,6 +94,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bookVisitAPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bookVisitAPage.Designer.cs">
+      <DependentUpon>bookVisitAPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bookVisitPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bookVisitPage.Designer.cs">
+      <DependentUpon>bookVisitPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="gridView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +126,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="visitorPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="visitorPage.Designer.cs">
+      <DependentUpon>visitorPage.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="bookVisitAPage.resx">
+      <DependentUpon>bookVisitAPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bookVisitPage.resx">
+      <DependentUpon>bookVisitPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gridView.resx">
       <DependentUpon>gridView.cs</DependentUpon>
     </EmbeddedResource>
@@ -105,7 +157,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="visitorPage.resx">
+      <DependentUpon>visitorPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="db.db" />
     <None Include="packages.config" />
+    <None Include="prisonAutomation_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -121,6 +178,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\lawAndOrder.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SQLite.Interop.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

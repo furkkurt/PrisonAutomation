@@ -16,6 +16,8 @@ namespace prisonAutomation
         public personalPage()
         {
             InitializeComponent();
+            setConnection();
+            sql_con.Open();
         }
 
         private SQLiteConnection sql_con;
@@ -40,21 +42,6 @@ namespace prisonAutomation
             sql_con.Close();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void zoneBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void personalPage_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void gridBut_Click(object sender, EventArgs e)
         {
             gridView toGridView = new gridView();
@@ -64,7 +51,7 @@ namespace prisonAutomation
 
         private void createBut_Click(object sender, EventArgs e)
         {
-            string query = "insert into Prisoners (ID,FullName,Crime,EntryDate,Penalty,Zone)values('"+idText.Text+ "','" + nameBox.Text + "','" + crimeBox.Text + "','" + dateBox.Text + "','" + penaltyBox.Text + "','"+zoneBox.Text+"')";
+            string query = "insert into Prisoners (ID,FullName,DateOfBirth,Crime,EntryDate,Penalty,Zone,Visits)values('"+idText.Text+ "','" + nameBox.Text + "','" + birthBox.Text + "','" + crimeBox.Text + "','" + dateBox.Text + "','" + penaltyBox.Text + "','"+zoneBox.Text+"','"+visitsText.Text+"')";
             executeQuery(query);
         }
 
@@ -76,17 +63,24 @@ namespace prisonAutomation
 
         private void selectBut_Click(object sender, EventArgs e)
         {
-            setConnection();
-            sql_con.Open();
-            SQLiteCommand sql_cmd2 = new SQLiteCommand("select * from Prisoners where ID='"+idText.Text+"'", sql_con);
-            DA = sql_cmd2.ExecuteReader();
+            sql_cmd = new SQLiteCommand("select * from Prisoners where ID='"+idText.Text+"'", sql_con);
+            DA = sql_cmd.ExecuteReader();
             DA.Read();
             nameBox.Text = DA.GetValue(1).ToString();
-            crimeBox.Text = DA.GetValue(2).ToString();
-            dateBox.Text = DA.GetValue(3).ToString();
-            penaltyBox.Text = DA.GetValue(4).ToString();
-            zoneBox.Text = DA.GetValue(5).ToString();
+            birthBox.Text = DA.GetValue(2).ToString();
+            crimeBox.Text = DA.GetValue(3).ToString();
+            dateBox.Text = DA.GetValue(4).ToString();
+            penaltyBox.Text = DA.GetValue(5).ToString();
+            zoneBox.Text = DA.GetValue(6).ToString();
+            visitsText.Text = DA.GetValue(7).ToString();
+            DA.Close();
+        }
 
+        private void updateBut_Click(object sender, EventArgs e)
+        {
+
+            string query = "update Prisoners set FullName='"+nameBox.Text+ "',Crime='" + crimeBox.Text +"',DateOfBirth='" + birthBox.Text + "',EntryDate='" + dateBox.Text + "',Penalty='" + penaltyBox.Text + "',Zone='" + zoneBox.Text + "',Visits='" + visitsText.Text + "' where ID='" + idText.Text+"'";
+            executeQuery(query);
         }
     }
 }

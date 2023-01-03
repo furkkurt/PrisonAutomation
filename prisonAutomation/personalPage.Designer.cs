@@ -45,6 +45,10 @@
             this.crimeBox = new System.Windows.Forms.ComboBox();
             this.zoneBox = new System.Windows.Forms.ComboBox();
             this.gridBut = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.birthBox = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.visitsText = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // createBut
@@ -101,6 +105,7 @@
             this.updateBut.Text = "UPDATE";
             this.updateBut.UseMnemonic = false;
             this.updateBut.UseVisualStyleBackColor = false;
+            this.updateBut.Click += new System.EventHandler(this.updateBut_Click);
             // 
             // idText
             // 
@@ -117,7 +122,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(476, 12);
+            this.label1.Location = new System.Drawing.Point(460, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 20);
             this.label1.TabIndex = 10;
@@ -129,7 +134,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(476, 38);
+            this.label2.Location = new System.Drawing.Point(460, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 20);
             this.label2.TabIndex = 12;
@@ -150,7 +155,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(476, 64);
+            this.label3.Location = new System.Drawing.Point(460, 96);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 20);
             this.label3.TabIndex = 14;
@@ -162,7 +167,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(476, 90);
+            this.label4.Location = new System.Drawing.Point(460, 122);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 20);
             this.label4.TabIndex = 16;
@@ -172,7 +177,7 @@
             // 
             this.dateBox.BackColor = System.Drawing.SystemColors.Info;
             this.dateBox.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.dateBox.Location = new System.Drawing.Point(564, 90);
+            this.dateBox.Location = new System.Drawing.Point(564, 122);
             this.dateBox.Name = "dateBox";
             this.dateBox.Size = new System.Drawing.Size(100, 20);
             this.dateBox.TabIndex = 15;
@@ -183,7 +188,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(476, 116);
+            this.label5.Location = new System.Drawing.Point(460, 148);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 20);
             this.label5.TabIndex = 18;
@@ -193,7 +198,7 @@
             // 
             this.penaltyBox.BackColor = System.Drawing.SystemColors.Info;
             this.penaltyBox.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.penaltyBox.Location = new System.Drawing.Point(564, 116);
+            this.penaltyBox.Location = new System.Drawing.Point(564, 148);
             this.penaltyBox.Name = "penaltyBox";
             this.penaltyBox.Size = new System.Drawing.Size(100, 20);
             this.penaltyBox.TabIndex = 17;
@@ -204,7 +209,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(476, 142);
+            this.label6.Location = new System.Drawing.Point(460, 174);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 20);
             this.label6.TabIndex = 20;
@@ -239,11 +244,10 @@
             "Tax evasion",
             "Theft of government property",
             "Wire fraud"});
-            this.crimeBox.Location = new System.Drawing.Point(564, 63);
+            this.crimeBox.Location = new System.Drawing.Point(564, 95);
             this.crimeBox.Name = "crimeBox";
             this.crimeBox.Size = new System.Drawing.Size(100, 21);
             this.crimeBox.TabIndex = 21;
-            this.crimeBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // zoneBox
             // 
@@ -254,11 +258,10 @@
             "B",
             "C",
             "D"});
-            this.zoneBox.Location = new System.Drawing.Point(564, 144);
+            this.zoneBox.Location = new System.Drawing.Point(564, 176);
             this.zoneBox.Name = "zoneBox";
             this.zoneBox.Size = new System.Drawing.Size(100, 21);
             this.zoneBox.TabIndex = 22;
-            this.zoneBox.SelectedIndexChanged += new System.EventHandler(this.zoneBox_SelectedIndexChanged);
             // 
             // gridBut
             // 
@@ -274,6 +277,48 @@
             this.gridBut.UseVisualStyleBackColor = false;
             this.gridBut.Click += new System.EventHandler(this.gridBut_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label7.Location = new System.Drawing.Point(460, 67);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(98, 20);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Date of Birth:";
+            // 
+            // birthBox
+            // 
+            this.birthBox.BackColor = System.Drawing.SystemColors.Info;
+            this.birthBox.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.birthBox.Location = new System.Drawing.Point(564, 67);
+            this.birthBox.Name = "birthBox";
+            this.birthBox.Size = new System.Drawing.Size(100, 20);
+            this.birthBox.TabIndex = 24;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label8.Location = new System.Drawing.Point(460, 201);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(49, 20);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "Visits:";
+            // 
+            // visitsText
+            // 
+            this.visitsText.BackColor = System.Drawing.SystemColors.Info;
+            this.visitsText.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.visitsText.Location = new System.Drawing.Point(564, 203);
+            this.visitsText.Name = "visitsText";
+            this.visitsText.Size = new System.Drawing.Size(100, 20);
+            this.visitsText.TabIndex = 27;
+            // 
             // personalPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,6 +326,10 @@
             this.BackgroundImage = global::prisonAutomation.Properties.Resources.lawAndOrder;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(676, 450);
+            this.Controls.Add(this.visitsText);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.birthBox);
             this.Controls.Add(this.gridBut);
             this.Controls.Add(this.zoneBox);
             this.Controls.Add(this.crimeBox);
@@ -301,7 +350,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "personalPage";
             this.Text = "personalPage";
-            this.Load += new System.EventHandler(this.personalPage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,5 +374,9 @@
         private System.Windows.Forms.ComboBox crimeBox;
         private System.Windows.Forms.ComboBox zoneBox;
         private System.Windows.Forms.Button gridBut;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox birthBox;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox visitsText;
     }
 }

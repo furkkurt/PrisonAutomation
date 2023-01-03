@@ -53,16 +53,20 @@ namespace prisonAutomation
             table.DataSource = DT;
             sql_con.Close();
         }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void personalBut_Click(object sender, EventArgs e)
         {
             personalPage toPersonalPage = new personalPage();
             toPersonalPage.Show();
             this.Hide();
+        }
+
+        private void searchBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            /*DataView DV = DT.DefaultView;
+            DV.RowFilter = string.Format("FullName like '%{0}%'", searchBox.Text);
+            table.DataSource = DV.ToTable();
+            */
         }
     }
 }

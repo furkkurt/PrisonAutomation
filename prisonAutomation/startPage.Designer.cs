@@ -58,6 +58,7 @@
             this.visitorBut.Text = "Visitor";
             this.visitorBut.UseMnemonic = false;
             this.visitorBut.UseVisualStyleBackColor = false;
+            this.visitorBut.Click += new System.EventHandler(this.visitorBut_Click);
             // 
             // startPage
             // 
