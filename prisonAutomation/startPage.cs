@@ -19,7 +19,7 @@ namespace prisonAutomation
 
         private void personalBut_Click(object sender, EventArgs e)
         {
-            personalPage toPersonalPage = new personalPage();
+            personalLogin toPersonalPage = new personalLogin();
             toPersonalPage.Show();
             this.Hide();
         }

@@ -31,6 +31,7 @@
             this.table = new System.Windows.Forms.DataGridView();
             this.personalBut = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
+            this.searchBut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,8 +63,22 @@
             this.searchBox.ForeColor = System.Drawing.SystemColors.Desktop;
             this.searchBox.Location = new System.Drawing.Point(230, 412);
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(434, 20);
+            this.searchBox.Size = new System.Drawing.Size(323, 20);
             this.searchBox.TabIndex = 25;
+            // 
+            // searchBut
+            // 
+            this.searchBut.BackColor = System.Drawing.SystemColors.Info;
+            this.searchBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchBut.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBut.Location = new System.Drawing.Point(559, 400);
+            this.searchBut.Name = "searchBut";
+            this.searchBut.Size = new System.Drawing.Size(105, 38);
+            this.searchBut.TabIndex = 26;
+            this.searchBut.Text = "SEARCH";
+            this.searchBut.UseMnemonic = false;
+            this.searchBut.UseVisualStyleBackColor = false;
+            this.searchBut.Click += new System.EventHandler(this.searchBut_Click);
             // 
             // gridView
             // 
@@ -72,6 +87,7 @@
             this.BackgroundImage = global::prisonAutomation.Properties.Resources.lawAndOrder;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(676, 450);
+            this.Controls.Add(this.searchBut);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.personalBut);
             this.Controls.Add(this.table);
@@ -88,5 +104,6 @@
         private System.Windows.Forms.DataGridView table;
         private System.Windows.Forms.Button personalBut;
         private System.Windows.Forms.TextBox searchBox;
+        private System.Windows.Forms.Button searchBut;
     }
 }

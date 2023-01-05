@@ -17,42 +17,66 @@ namespace prisonAutomation
         {
             InitializeComponent();
         }
-        private SQLiteConnection sql_con;
-        private SQLiteCommand sql_cmd;
+
         private SQLiteDataAdapter DB;
         private DataSet DS = new DataSet();
         private DataTable DT = new DataTable();
         private SQLiteDataReader DA;
 
-        private void setConnection()
+        private void executeQuery(string query)
         {
-            sql_con = new SQLiteConnection("Data Source=db.db;Version=3;New=False;Compress=True;");
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            AppDomain.CurrentDomain.SetData("DataDirectory", path);
+            using (var con = new SQLiteConnection("Data Source=|DataDirectory|/db.db"))
+            {
+                con.Open();
+                using (var cmd = new SQLiteCommand(query, con))
+                {
+                    cmd.CommandText = query;
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
-        private void crimeBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void createBut_Click(object sender, EventArgs e)
         {
+            
             String id = visitorPage.instance.id;
-
-            setConnection();
-            sql_con.Open();
-            SQLiteCommand sql_cmd = new SQLiteCommand("select * from Prisoners where ID='" + id + "'", sql_con);
-            DA = sql_cmd.ExecuteReader();
-            DA.Read();
-
-            String visits = DA.GetValue(7).ToString().Trim();
+            String visits;
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            AppDomain.CurrentDomain.SetData("DataDirectory", path);
+            using (var con = new SQLiteConnection("Data Source=|DataDirectory|/db.db"))
+            {
+                con.Open();
+                using (var cmd = new SQLiteCommand("select * from Prisoners where ID='" + id + "'", con))
+                {
+                    DA = cmd.ExecuteReader();
+                    DA.Read();
+                    visits = DA.GetValue(7).ToString().Trim();
+                    DA.Dispose();
+                }
+            }
+           
+            
             if (Int32.Parse(visits) < 3)
             {
+                int newVisits = Int32.Parse(visits) + 1;
+                string query = "update Prisoners set Visits='" + newVisits + "' where ID='" + id + "'";
+                executeQuery(query);
                 MessageBox.Show("Visit Booked");
             }
             else
             {
                 MessageBox.Show("Reached maximum number of visits for this week.");
             }
+        }
+
+        private void backBut_Click(object sender, EventArgs e)
+        {
+            visitorPage toVisitorPage = new visitorPage();
+            this.Hide();
+            toVisitorPage.Show();
         }
     }
 }

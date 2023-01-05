@@ -49,6 +49,7 @@
             this.birthBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.visitsText = new System.Windows.Forms.TextBox();
+            this.backBut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // createBut
@@ -268,7 +269,7 @@
             this.gridBut.BackColor = System.Drawing.SystemColors.Info;
             this.gridBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gridBut.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridBut.Location = new System.Drawing.Point(12, 400);
+            this.gridBut.Location = new System.Drawing.Point(12, 356);
             this.gridBut.Name = "gridBut";
             this.gridBut.Size = new System.Drawing.Size(134, 38);
             this.gridBut.TabIndex = 23;
@@ -319,6 +320,20 @@
             this.visitsText.Size = new System.Drawing.Size(100, 20);
             this.visitsText.TabIndex = 27;
             // 
+            // backBut
+            // 
+            this.backBut.BackColor = System.Drawing.SystemColors.Info;
+            this.backBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backBut.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backBut.Location = new System.Drawing.Point(12, 400);
+            this.backBut.Name = "backBut";
+            this.backBut.Size = new System.Drawing.Size(134, 38);
+            this.backBut.TabIndex = 28;
+            this.backBut.Text = "BACK";
+            this.backBut.UseMnemonic = false;
+            this.backBut.UseVisualStyleBackColor = false;
+            this.backBut.Click += new System.EventHandler(this.backBut_Click);
+            // 
             // personalPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,6 +341,7 @@
             this.BackgroundImage = global::prisonAutomation.Properties.Resources.lawAndOrder;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(676, 450);
+            this.Controls.Add(this.backBut);
             this.Controls.Add(this.visitsText);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -378,5 +394,6 @@
         private System.Windows.Forms.TextBox birthBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox visitsText;
+        private System.Windows.Forms.Button backBut;
     }
 }

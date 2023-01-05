@@ -20,38 +20,41 @@ namespace prisonAutomation
             loadData();
         }
 
-        private SQLiteConnection sql_con;
-        private SQLiteCommand sql_cmd;
         private SQLiteDataAdapter DB;
         private DataSet DS = new DataSet();
         private DataTable DT = new DataTable();
 
-        private void setConnection()
-        {
-            sql_con = new SQLiteConnection("Data Source=db.db;Version=3;New=False;Compress=True;");
-        }
 
         private void executeQuery(string query)
         {
-            setConnection();
-            sql_con.Open();
-            sql_cmd = sql_con.CreateCommand();
-            sql_cmd.CommandText = query;
-            sql_cmd.ExecuteNonQuery();
-            sql_con.Close();
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            AppDomain.CurrentDomain.SetData("DataDirectory", path);
+            using (var con = new SQLiteConnection("Data Source=|DataDirectory|/db.db"))
+            {
+                con.Open();
+                using (var cmd = new SQLiteCommand(query, con))
+                {
+                    cmd.CommandText = query;
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
         private void loadData()
         {
-            setConnection();
-            sql_con.Open();
-            sql_cmd = sql_con.CreateCommand();
-            string CommandText = "SELECT * FROM Prisoners";
-            DB = new SQLiteDataAdapter(CommandText, sql_con);
-            DS.Reset();
-            DB.Fill(DS);
-            DT = DS.Tables[0];
-            table.DataSource = DT;
-            sql_con.Close();
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            AppDomain.CurrentDomain.SetData("DataDirectory", path);
+            using (var con = new SQLiteConnection("Data Source=db.db"))
+            {
+                con.Open();
+                using (var cmd = new SQLiteCommand("SELECT * FROM Prisoners", con))
+                {
+                    DB = new SQLiteDataAdapter("SELECT * FROM Prisoners", con);
+                    DS.Reset();
+                    DB.Fill(DS);
+                    DT = DS.Tables[0];
+                    table.DataSource = DT;
+                }
+            }
         }
 
         private void personalBut_Click(object sender, EventArgs e)
@@ -61,12 +64,12 @@ namespace prisonAutomation
             this.Hide();
         }
 
-        private void searchBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void searchBut_Click(object sender, EventArgs e)
         {
-            /*DataView DV = DT.DefaultView;
+            DataView DV = DT.DefaultView;
             DV.RowFilter = string.Format("FullName like '%{0}%'", searchBox.Text);
             table.DataSource = DV.ToTable();
-            */
+            Console.WriteLine(searchBox.Text);
         }
     }
 }

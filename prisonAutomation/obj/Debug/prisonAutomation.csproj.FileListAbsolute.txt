@@ -1,5 +1,6 @@
 C:\Users\furkan\source\repos\prisonAutomation\prisonAutomation\bin\Debug\x86\sqlite3.dll
 C:\Users\furkan\source\repos\prisonAutomation\prisonAutomation\bin\Debug\x64\sqlite3.dll
+C:\Users\furkan\source\repos\prisonAutomation\prisonAutomation\bin\Debug\db.db
 C:\Users\furkan\source\repos\prisonAutomation\prisonAutomation\bin\Debug\prisonAutomation.exe.config
 C:\Users\furkan\source\repos\prisonAutomation\prisonAutomation\bin\Debug\prisonAutomation.exe.manifest
 C:\Users\furkan\source\repos\prisonAutomation\prisonAutomation\bin\Debug\prisonAutomation.application
@@ -17,6 +18,7 @@ C:\Users\furkan\source\repos\prisonAutomation\prisonAutomation\obj\Debug\prisonA
 C:\Users\furkan\source\repos\prisonAutomation\prisonAutomation\obj\Debug\prisonAutomation.bookVisitAPage.resources
 C:\Users\furkan\source\repos\prisonAutomation\prisonAutomation\obj\Debug\prisonAutomation.bookVisitPage.resources
 C:\Users\furkan\source\repos\prisonAutomation\prisonAutomation\obj\Debug\prisonAutomation.gridView.resources
+C:\Users\furkan\source\repos\prisonAutomation\prisonAutomation\obj\Debug\prisonAutomation.personalLogin.resources
 C:\Users\furkan\source\repos\prisonAutomation\prisonAutomation\obj\Debug\prisonAutomation.personalPage.resources
 C:\Users\furkan\source\repos\prisonAutomation\prisonAutomation\obj\Debug\prisonAutomation.startPage.resources
 C:\Users\furkan\source\repos\prisonAutomation\prisonAutomation\obj\Debug\prisonAutomation.Properties.Resources.resources

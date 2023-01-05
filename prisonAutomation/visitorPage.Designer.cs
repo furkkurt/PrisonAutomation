@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.idText = new System.Windows.Forms.TextBox();
             this.bookBut = new System.Windows.Forms.Button();
+            this.backBut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label4
@@ -114,6 +115,20 @@
             this.bookBut.UseVisualStyleBackColor = false;
             this.bookBut.Click += new System.EventHandler(this.button1_Click);
             // 
+            // backBut
+            // 
+            this.backBut.BackColor = System.Drawing.SystemColors.Info;
+            this.backBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backBut.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backBut.Location = new System.Drawing.Point(12, 400);
+            this.backBut.Name = "backBut";
+            this.backBut.Size = new System.Drawing.Size(134, 38);
+            this.backBut.TabIndex = 42;
+            this.backBut.Text = "BACK";
+            this.backBut.UseMnemonic = false;
+            this.backBut.UseVisualStyleBackColor = false;
+            this.backBut.Click += new System.EventHandler(this.backBut_Click);
+            // 
             // visitorPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -121,6 +136,7 @@
             this.BackgroundImage = global::prisonAutomation.Properties.Resources.lawAndOrder;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(676, 450);
+            this.Controls.Add(this.backBut);
             this.Controls.Add(this.bookBut);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.birthBox);
@@ -144,5 +160,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox idText;
         private System.Windows.Forms.Button bookBut;
+        private System.Windows.Forms.Button backBut;
     }
 }
